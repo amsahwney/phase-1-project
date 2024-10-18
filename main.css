@@ -1,3 +1,5 @@
+/* working on centering the form on the page and aligning the submit button to the right */
+
 #grid-container {
 	display: grid;
 	grid-template-columns: 5fr 5fr;
@@ -19,13 +21,15 @@
 }
 
 .welcome-text {
-    color: white;
-    font-family: "Georgia"
+    color: whitesmoke;   
 }
 
+#welcome-message {
+  font-family: 'Gill Sans';
+}
 
 #instructions {
-  font-family: "Georgia";
+  font-family: monospace;
   line-height: 1.5;
 }
 
@@ -66,6 +70,25 @@
     flex-direction: column;
     padding: 20px
   }
+
+  .submit {
+  /* position: relative; */
+  background-color: #e893ac;
+  border-radius: 5px;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 24px;
+  font-family: "Gill Sans";
+}
+
+.input-text {
+  border-radius: 5px;
+  width: 50%;
+  height: 20%;
+  color: whitesmoke;
+  font-size: 24px;
+  font-family: "Gill Sans";
+}
 
   
 /* making it responsive - the death of me */
