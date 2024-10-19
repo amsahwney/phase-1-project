@@ -18,3 +18,5 @@
 
 //do you have any questions. comments, or concerns for this ocutopus
 //can event listeners trigger audio? download audio file and put it in assets and then research
+
+//make the cursor something else?
