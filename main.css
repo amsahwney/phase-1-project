@@ -1,5 +1,3 @@
-/* working on centering the form on the page and aligning the submit button to the right */
-
 #grid-container {
 	display: grid;
 	grid-template-columns: 5fr 5fr;
@@ -49,11 +47,9 @@
 #the-man-the-legend {
   z-index: 3;
   position: absolute;
-  top: 15%;
   right: 0 ;
   width: auto;
   height: auto;
-
 }
 
   #form-panel {
@@ -62,30 +58,38 @@
     padding: 60px;
     position: relative;
     z-index: 1;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) */
   }
 
   #review-form {
     display: flex;
     flex-direction: column;
-    padding: 20px
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    padding-top: 12%
+  }
+
+  #paragraph-space {
+    height: 100px; 
+    resize: vertical;
   }
 
   .submit {
-  /* position: relative; */
   background-color: #e893ac;
   border-radius: 5px;
   width: max-content;
   color: whitesmoke;
   font-size: 24px;
   font-family: "Gill Sans";
+  align-self: flex-end;
+  position: relative;
+  right: 20%;
 }
 
 .input-text {
   border-radius: 5px;
-  width: 50%;
+  width: 60%;
   height: 20%;
-  color: whitesmoke;
   font-size: 24px;
   font-family: "Gill Sans";
 }
