@@ -47,7 +47,7 @@ async function postFortune() {
         }
         }
 
-        welcomeMessage.textContent = "Today's Fortunes:"
+        welcomeMessage.textContent = "your fortune today says"
         instructions.textContent = 'I can conjure up to 3 fortunes a day.'
         addNewFortune()
 }
@@ -74,8 +74,6 @@ octopus.addEventListener('click', () => postFortune())
 // key frames - can be used for shaking or something
 
 // "no returns or refunds!!" // "I cannot guarantee results"
-
-//do you have any questions. comments, or concerns for this ocutopus
 
 //can event listeners trigger audio? download audio file and put it in assets and then research
 // DOMcontentloaded event listener for bubbles on load
