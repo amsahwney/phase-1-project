@@ -2,8 +2,14 @@
 const newReviewForm = document.querySelector('#review-form')
 const nameInput = document.querySelector('.input-text')
 const reviewInput = document.querySelector('#paragraph-space')
+const emailInput = document.querySelector('#email-text')
 
-//FORTUNE POST REQUEST
+const octopus = document.querySelector('#the-man-the-legend')
+const welcomeMessage = document.querySelector('#welcome-message')
+const instructions = document.querySelector('#instructions')
+const fortuneList = document.querySelector('#fortunes-here')
+
+//FORM POST REQUEST
 async function submitReview(event) {
     
     event.preventDefault()
@@ -13,6 +19,7 @@ async function submitReview(event) {
         headers: {'Content-Type' : 'application/json'}, 
         body: JSON.stringify( { 
             name: nameInput.value,
+            email: emailInput.value,
             review: reviewInput.value} )
     })
     const newReview = await response.json()
@@ -22,8 +29,33 @@ async function submitReview(event) {
 
 }
 
+
+//FORTUNE FETCH REQUEST
+async function postFortune() {
+    const response = await fetch('http://localhost:3000/fortunes')
+    const fortune = await response.json()
+
+
+    //FORTUNE POST FUNCTION
+    let i = 1
+        function addNewFortune(){
+        if (i < fortune.length){
+        const fortunePost = document.createElement("li")
+        fortunePost.textContent = fortune[i].content
+        fortuneList.append(fortunePost)
+        i++
+        }
+        }
+
+        welcomeMessage.textContent = "Today's Fortunes:"
+        instructions.textContent = 'I can conjure up to 3 fortunes a day.'
+        addNewFortune()
+}
+
 //EVENT LISTENERS
 newReviewForm.addEventListener('submit', () => submitReview(event))
+octopus.addEventListener('click', () => postFortune())
+
 
 // limit to one 3 fortunes per day - click tracking
 // localStorage - you can save stuff in a window for later 
