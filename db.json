@@ -1,383 +1,402 @@
 {
-    "fortunes": [
-        
-    ],
-    "responses": [
-        { 
-            "id": 1, 
-            "content": "A friend's frown is better than a fool's smile." 
-        },
-        { 
-            "id": 2,
-            "content": "A friend in need is a friend indeed." 
-        },
-        { 
-            "id": 3, 
-            "content": "A friend is easier lost than found." 
-        },
-        { 
-            "id": 4,
-            "content": "A friend to everybody is a friend to nobody." 
-        },
-        { 
-            "id": 5, 
-            "content": "A problem shared is a problem halved." 
-        },
-        { 
-            "id": 6, 
-            "content": "A true friend is someone who reaches for your hand, but touches your heart." 
-        },
-        { 
-            "id": 7,
-            "content": "False friends are worse than open enemies." 
-        },
-        { 
-            "id": 8, 
-            "content": "Flattery is all right so long as you don't inhale." 
-        },
-        { 
-            "id": 9, 
-            "content": "Give credit where credit is due." 
-        },
-        { 
-            "id": 10, 
-            "content": "Grief divided is made lighter." 
-        },
-        { 
-            "id": 11, 
-            "content": "Memory is the treasure of the mind." 
-        },
-        { 
-            "id": 12, 
-            "content": "Nothing dries sooner than a tear." 
-        },
-        { 
-            "id": 13, 
-            "content": "Old friends and old wine are best." 
-        },
-        { 
-            "id": 14, 
-            "content": "The best of friends must part." 
-        },
-        { 
-            "id": 15, 
-            "content": "The best things are not bought and sold." 
-        },
-        { 
-            "id": 16, 
-            "content": "There is no better looking-glass than an old friend." 
-        },
-        { 
-            "id": 17, 
-            "content": "To err is human (To forgive divine)." 
-        },
-        { 
-            "id": 18, 
-            "content": "Two cannot fall out if one does not choose." 
-        },
-        { 
-            "id": 19, 
-            "content": "A loveless life is a living death." 
-        },
-        { 
-            "id": 20, 
-            "content": "Absence makes the heart grow fonder." 
-        },
-        { 
-            "id": 21, 
-            "content": "All's fair in love and war." 
-        },
-        { 
-            "id": 22, 
-            "content": "Beauty is in the eye of the beholder." 
-        },
-        { 
-            "id": 23, 
-            "content": "Before you meet the handsome prince you have to kiss a lot of toads." 
-        },
-        { 
-            "id": 24, 
-            "content": "Better to have loved and lost, than to have never loved at all." 
-        },
-        { 
-            "id": 25, 
-            "content": "Cold hands, warm heart." 
-        },
-        { 
-            "id": 27, 
-            "content": "Faint heart never won fair lady." 
-        },
-        { 
-            "id": 28, 
-            "content": "First impressions are the most lasting." 
-        },
-        { 
-            "id": 29, 
-            "content": "Hatred is as blind as love." 
-        },
-        { 
-            "id": 30, 
-            "content": "Love and a cough cannot be hid." 
-        },
-        { 
-            "id": 31, 
-            "content": "Love does much but money does all." 
-        },
-        { 
-            "id": 32, 
-            "content": "Love levels all inequalities." 
-        },
-        { 
-            "id": 33,
-            "content": "Love makes a good eye squint." 
-        },
-        { 
-            "id": 34, 
-            "content": "Love sees no faults." 
-        },
-        { 
-            "id": 35, 
-            "content": "Love sought is good, but given unsought is better." 
-        },
-        { 
-            "id": 36,
-            "content": "Love to live and live to love." 
-        },
-        { 
-            "id": 37, 
-            "content": "Love with life is heaven; and life unloving, hell." 
-        },
-        { 
-            "id": 38, 
-            "content": "Man is the head but woman turns it." 
-        },
-        { 
-            "id": 39, 
-            "content": "Marry in haste, repent at leisure." 
-        },
-        { 
-            "id": 40, 
-            "content": "The course of love never did run smooth." 
-        },
-        { 
-            "id": 41, 
-            "content": "The Lord loveth a cheerful liar." 
-        },
-        { 
-            "id": 42, 
-            "content": "There is a thin line between love and hate." 
-        },
-        { 
-            "id": 44, 
-            "content": "True beauty lies within." 
-        },
-        { 
-            "id": 45, 
-            "content": "You can't live on bread alone." 
-        },
-        { 
-            "id": 46, 
-            "content": "A good friend is one's nearest relation." 
-        },
-        { 
-            "id": 47, 
-            "content": "A man is known by the company he keeps." 
-        },
-        { 
-            "id": 49, 
-            "content": "A wink is as good as a nod, to a blind man." 
-        },
-        { 
-            "id": 50, 
-            "content": "An injury is forgiven better than an injury revenged." 
-        },
-        { 
-        "id": 51, 
-        "content": "A stitch in time saves nine." 
-        },
-        { 
-        "id": 54, 
-        "content": "An ounce of prevention is worth a pound of cure." 
-        },
-        { 
-        "id": 55, 
-        "content": "As you sow, so shall you reap." 
-        },
-        { 
-        "id": 57, 
-        "content": "Better safe than sorry." 
-        },
-        { 
-        "id": 58, 
-        "content": "Curiosity killed the cat." 
-        },
-        { 
-        "id": 59, 
-        "content": "Discretion is the better part of valor." 
-        },
-        { 
-        "id": 60, 
-        "content": "Do unto others as you would have them do unto you." 
-        },
-        { 
-        "id": 61, 
-        "content": "Don't bite off more than you can chew." 
-        },
-        { 
-        "id": 62, 
-        "content": "Don't put all your eggs in one basket." 
-        },
-        { 
-        "id": 63, 
-        "content": "Don't put the cart before the horse." 
-        },
-        { 
-        "id": 64, 
-        "content": "Every dog has its day." 
-        },
-        { 
-        "id": 65, 
-        "content": "Every rose has its thorn." 
-        },
-        { 
-        "id": 66, 
-        "content": "Familiarity breeds contempt." 
-        },
-        { 
-        "id": 67, 
-        "content": "Fools rush in where angels fear to tread." 
-        },
-        { 
-        "id": 68, 
-        "content": "Good fences make good neighbors." 
-        },
-        { 
-        "id": 69, 
-        "content": "Haste makes waste." 
-        },
-        { 
-        "id": 70, 
-        "content": "He who laughs last laughs best." 
-        },
-        { 
-        "id": 71, 
-        "content": "Hope for the best, prepare for the worst." 
-        },
-        { 
-        "id": 72, 
-        "content": "If you can't beat them, join them." 
-        },
-        { 
-        "id": 73, 
-        "content": "If you want something done right, do it yourself." 
-        },
-        { 
-        "id": 74, 
-        "content": "It is always darkest before the dawn." 
-        },
-        { 
-        "id": 75, 
-        "content": "It takes two to tango." 
-        },
-        { 
-        "id": 76, 
-        "content": "It's better to give than to receive." 
-        },
-        { 
-        "id": 77, 
-        "content": "It's never too late to learn." 
-        },
-        { 
-        "id": 78, 
-        "content": "Keep your friends close and your enemies closer." 
-        },
-        { 
-        "id": 79, 
-        "content": "Knowledge is the antidote to fear." 
-        },
-        { 
-        "id": 80, 
-        "content": "Let sleeping dogs lie." 
-        },
-        { 
-        "id": 81, 
-        "content": "Look before you leap." 
-        },
-        { 
-        "id": 82, 
-        "content": "Make hay while the sun shines." 
-        },
-        { 
-        "id": 83, 
-        "content": "Misery loves company." 
-        },
-        { 
-        "id": 84, 
-        "content": "No man is an island." 
-        },
-        { 
-        "id": 85, 
-        "content": "Once bitten, twice shy." 
-        },
-        { 
-        "id": 86, 
-        "content": "One man's trash is another man's treasure." 
-        },
-        { 
-        "id": 87, 
-        "content": "Out of the frying pan and into the fire." 
-        },
-        { 
-        "id": 88, 
-        "content": "Patience is a virtue." 
-        },
-        { 
-        "id": 89, 
-        "content": "Pride comes before a fall." 
-        },
-        { 
-        "id": 90, 
-        "content": "Silence is golden." 
-        },
-        { 
-        "id": 91, 
-        "content": "Strike while the iron is hot." 
-        },
-        { 
-        "id": 92, 
-        "content": "The best defense is a good offense." 
-        },
-        { 
-        "id": 93, 
-        "content": "The early bird catches the worm." 
-        },
-        { 
-        "id": 94, 
-        "content": "The more, the merrier." 
-        },
-        { 
-        "id": 95, 
-        "content": "There is no time like the present." 
-        },
-        { 
-        "id": 96, 
-        "content": "Time heals all wounds." 
-        },
-        { 
-        "id": 97, 
-        "content": "Variety is the spice of life." 
-        },
-        { 
-        "id": 98, 
-        "content": "What goes around comes around." 
-        },
-        { 
-        "id": 99, 
-        "content": "Where there's a will, there's a way." 
-        },
-        { 
-        "id": 100, 
-        "content": "You can't make an omelet without breaking eggs." 
-        }
-    ]
+  "fortunes": [
+    {
+      "id": "1",
+      "content": "A friend's frown is better than a fool's smile."
+    },
+    {
+      "id": "2",
+      "content": "A friend in need is a friend indeed."
+    },
+    {
+      "id": "3",
+      "content": "A friend is easier lost than found."
+    },
+    {
+      "id": "4",
+      "content": "A friend to everybody is a friend to nobody."
+    },
+    {
+      "id": "5",
+      "content": "A problem shared is a problem halved."
+    },
+    {
+      "id": "6",
+      "content": "A true friend is someone who reaches for your hand, but touches your heart."
+    },
+    {
+      "id": "7",
+      "content": "False friends are worse than open enemies."
+    },
+    {
+      "id": "8",
+      "content": "Flattery is all right so long as you don't inhale."
+    },
+    {
+      "id": "9",
+      "content": "Give credit where credit is due."
+    },
+    {
+      "id": "10",
+      "content": "Grief divided is made lighter."
+    },
+    {
+      "id": "11",
+      "content": "Memory is the treasure of the mind."
+    },
+    {
+      "id": "12",
+      "content": "Nothing dries sooner than a tear."
+    },
+    {
+      "id": "13",
+      "content": "Old friends and old wine are best."
+    },
+    {
+      "id": "14",
+      "content": "The best of friends must part."
+    },
+    {
+      "id": "15",
+      "content": "The best things are not bought and sold."
+    },
+    {
+      "id": "16",
+      "content": "There is no better looking-glass than an old friend."
+    },
+    {
+      "id": "17",
+      "content": "To err is human (To forgive divine)."
+    },
+    {
+      "id": "18",
+      "content": "Two cannot fall out if one does not choose."
+    },
+    {
+      "id": "19",
+      "content": "A loveless life is a living death."
+    },
+    {
+      "id": "20",
+      "content": "Absence makes the heart grow fonder."
+    },
+    {
+      "id": "21",
+      "content": "All's fair in love and war."
+    },
+    {
+      "id": "22",
+      "content": "Beauty is in the eye of the beholder."
+    },
+    {
+      "id": "23",
+      "content": "Before you meet the handsome prince you have to kiss a lot of toads."
+    },
+    {
+      "id": "24",
+      "content": "Better to have loved and lost, than to have never loved at all."
+    },
+    {
+      "id": "25",
+      "content": "Cold hands, warm heart."
+    },
+    {
+      "id": "27",
+      "content": "Faint heart never won fair lady."
+    },
+    {
+      "id": "28",
+      "content": "First impressions are the most lasting."
+    },
+    {
+      "id": "29",
+      "content": "Hatred is as blind as love."
+    },
+    {
+      "id": "30",
+      "content": "Love and a cough cannot be hid."
+    },
+    {
+      "id": "31",
+      "content": "Love does much but money does all."
+    },
+    {
+      "id": "32",
+      "content": "Love levels all inequalities."
+    },
+    {
+      "id": "33",
+      "content": "Love makes a good eye squint."
+    },
+    {
+      "id": "34",
+      "content": "Love sees no faults."
+    },
+    {
+      "id": "35",
+      "content": "Love sought is good, but given unsought is better."
+    },
+    {
+      "id": "36",
+      "content": "Love to live and live to love."
+    },
+    {
+      "id": "37",
+      "content": "Love with life is heaven; and life unloving, hell."
+    },
+    {
+      "id": "38",
+      "content": "Man is the head but woman turns it."
+    },
+    {
+      "id": "39",
+      "content": "Marry in haste, repent at leisure."
+    },
+    {
+      "id": "40",
+      "content": "The course of love never did run smooth."
+    },
+    {
+      "id": "41",
+      "content": "The Lord loveth a cheerful liar."
+    },
+    {
+      "id": "42",
+      "content": "There is a thin line between love and hate."
+    },
+    {
+      "id": "44",
+      "content": "True beauty lies within."
+    },
+    {
+      "id": "45",
+      "content": "You can't live on bread alone."
+    },
+    {
+      "id": "46",
+      "content": "A good friend is one's nearest relation."
+    },
+    {
+      "id": "47",
+      "content": "A man is known by the company he keeps."
+    },
+    {
+      "id": "49",
+      "content": "A wink is as good as a nod, to a blind man."
+    },
+    {
+      "id": "50",
+      "content": "An injury is forgiven better than an injury revenged."
+    },
+    {
+      "id": "51",
+      "content": "A stitch in time saves nine."
+    },
+    {
+      "id": "54",
+      "content": "An ounce of prevention is worth a pound of cure."
+    },
+    {
+      "id": "55",
+      "content": "As you sow, so shall you reap."
+    },
+    {
+      "id": "57",
+      "content": "Better safe than sorry."
+    },
+    {
+      "id": "58",
+      "content": "Curiosity killed the cat."
+    },
+    {
+      "id": "59",
+      "content": "Discretion is the better part of valor."
+    },
+    {
+      "id": "60",
+      "content": "Do unto others as you would have them do unto you."
+    },
+    {
+      "id": "61",
+      "content": "Don't bite off more than you can chew."
+    },
+    {
+      "id": "62",
+      "content": "Don't put all your eggs in one basket."
+    },
+    {
+      "id": "63",
+      "content": "Don't put the cart before the horse."
+    },
+    {
+      "id": "64",
+      "content": "Every dog has its day."
+    },
+    {
+      "id": "65",
+      "content": "Every rose has its thorn."
+    },
+    {
+      "id": "66",
+      "content": "Familiarity breeds contempt."
+    },
+    {
+      "id": "67",
+      "content": "Fools rush in where angels fear to tread."
+    },
+    {
+      "id": "68",
+      "content": "Good fences make good neighbors."
+    },
+    {
+      "id": "69",
+      "content": "Haste makes waste."
+    },
+    {
+      "id": "70",
+      "content": "He who laughs last laughs best."
+    },
+    {
+      "id": "71",
+      "content": "Hope for the best, prepare for the worst."
+    },
+    {
+      "id": "72",
+      "content": "If you can't beat them, join them."
+    },
+    {
+      "id": "73",
+      "content": "If you want something done right, do it yourself."
+    },
+    {
+      "id": "74",
+      "content": "It is always darkest before the dawn."
+    },
+    {
+      "id": "75",
+      "content": "It takes two to tango."
+    },
+    {
+      "id": "76",
+      "content": "It's better to give than to receive."
+    },
+    {
+      "id": "77",
+      "content": "It's never too late to learn."
+    },
+    {
+      "id": "78",
+      "content": "Keep your friends close and your enemies closer."
+    },
+    {
+      "id": "79",
+      "content": "Knowledge is the antidote to fear."
+    },
+    {
+      "id": "80",
+      "content": "Let sleeping dogs lie."
+    },
+    {
+      "id": "81",
+      "content": "Look before you leap."
+    },
+    {
+      "id": "82",
+      "content": "Make hay while the sun shines."
+    },
+    {
+      "id": "83",
+      "content": "Misery loves company."
+    },
+    {
+      "id": "84",
+      "content": "No man is an island."
+    },
+    {
+      "id": "85",
+      "content": "Once bitten, twice shy."
+    },
+    {
+      "id": "86",
+      "content": "One man's trash is another man's treasure."
+    },
+    {
+      "id": "87",
+      "content": "Out of the frying pan and into the fire."
+    },
+    {
+      "id": "88",
+      "content": "Patience is a virtue."
+    },
+    {
+      "id": "89",
+      "content": "Pride comes before a fall."
+    },
+    {
+      "id": "90",
+      "content": "Silence is golden."
+    },
+    {
+      "id": "91",
+      "content": "Strike while the iron is hot."
+    },
+    {
+      "id": "92",
+      "content": "The best defense is a good offense."
+    },
+    {
+      "id": "93",
+      "content": "The early bird catches the worm."
+    },
+    {
+      "id": "94",
+      "content": "The more, the merrier."
+    },
+    {
+      "id": "95",
+      "content": "There is no time like the present."
+    },
+    {
+      "id": "96",
+      "content": "Time heals all wounds."
+    },
+    {
+      "id": "97",
+      "content": "Variety is the spice of life."
+    },
+    {
+      "id": "98",
+      "content": "What goes around comes around."
+    },
+    {
+      "id": "99",
+      "content": "Where there's a will, there's a way."
+    },
+    {
+      "id": "100",
+      "content": "You can't make an omelet without breaking eggs."
+    }
+  ],
+  "responses": [
+    {
+      "id": "6dc5",
+      "name": "Amrita",
+      "review": "Good guy!"
+    },
+    {
+      "id": "1d21",
+      "name": "Guy",
+      "review": "I don't really know if you're listening to me?"
+    },
+    {
+      "id": "5df3",
+      "name": "User",
+      "review": "Who is this guy? "
+    },
+    {
+      "id": "3d61",
+      "name": "Someone",
+      "review": "Pretty cool :) "
+    }
+  ]
 }

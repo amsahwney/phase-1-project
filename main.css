@@ -1,8 +1,8 @@
 #grid-container {
 	display: grid;
 	grid-template-columns: 5fr 5fr;
-    grid-template-rows: auto 1fr;
-    height: 100vh
+  grid-template-rows: auto 1fr;
+  height: 100vh
 }
 
 #user-panel {
@@ -42,11 +42,12 @@
     object-fit: cover; /* Make sure the image fills the div without distortion */
     top: 0;
     left: 0;
+    /* position: relative;  this line might be necessary to make position absolute (below) work*/ 
   }
 
 #the-man-the-legend {
   z-index: 3;
-  position: absolute;
+  position: absolute; /* might want to reconsider this as a solution due to issues with responsiveness*/
   right: 0 ;
   width: auto;
   height: auto;
