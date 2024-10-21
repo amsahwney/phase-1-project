@@ -31,13 +31,13 @@ async function submitReview(event) {
 
 
 //FORTUNE FETCH REQUEST
+let i = 0
 async function postFortune() {
     const response = await fetch('http://localhost:3000/fortunes')
     const fortune = await response.json()
 
 
     //FORTUNE POST FUNCTION
-    let i = 1
         function addNewFortune(){
         if (i < fortune.length){
         const fortunePost = document.createElement("li")
