@@ -43,7 +43,7 @@ async function postFortune() {
         const fortunePost = document.createElement("li")
         fortunePost.textContent = fortune[i].content
         fortuneList.append(fortunePost)
-        i++
+        i++ //tell local storage what this number is and then set i = localcstroage. something something
         }
         }
 

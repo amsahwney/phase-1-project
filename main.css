@@ -38,6 +38,9 @@
   font-size: 20px;
   font-weight: bold;
   list-style: square outside url('assets/fish-element.png');
+  z-index: 5;
+  /* background-color: rgba(22,24,23,0.25);
+  border-radius: 15px; */
 }
 
 
@@ -58,9 +61,10 @@
 #the-man-the-legend {
   z-index: 3;
   position: absolute; /* might want to reconsider this as a solution due to issues with responsiveness*/
-  right: 0 ;
   width: auto;
   height: auto;
+  transform: scale(0.87);
+  right: -70 ;
 }
 
   #form-panel {
