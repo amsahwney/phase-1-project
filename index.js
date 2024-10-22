@@ -11,6 +11,31 @@ const welcomeMessage = document.querySelector('#welcome-message')
 const instructions = document.querySelector('#instructions')
 const fortuneList = document.querySelector('#fortunes-here')
 const noReturns = document.querySelector('#center-image')
+const fortuneShop = document.querySelector('#setting-the-scene')
+
+//LOCAL STORAGE SITUATION
+const lastClickDate = localStorage.getItem('lastClickDate')
+const currentDate = new Date().toLocaleDateString()
+
+function initializeClickTracking() {
+    if (lastClickDate !== currentDate) {
+        localStorage.setItem('clicks', "0")
+        localStorage.setItem('lastClickDate', currentDate)
+    }
+}
+
+function updateClickCount() {
+    let clicks = parseInt(localStorage.getItem('clicks')) || 0
+    if (clicks >= 3 && lastClickDate === currentDate) {
+        window.alert("I'm an octopus, NOT a fortune factory!")
+    } else {
+        localStorage.setItem('clicks', "0")
+        localStorage.setItem('lastClickDate', currentDate)
+        clicks++
+        localStorage.setItem('clicks', clicks.toString())
+        postFortune()
+    }
+}
 
 //FORM POST REQUEST
 async function submitReview(event) {
@@ -21,17 +46,17 @@ async function submitReview(event) {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'}, 
         body: JSON.stringify( { 
-            name: nameInput.value.trim,
-            email: emailInput.value.trim,
-            review: reviewInput.value.trim} )
+            name: nameInput.value,
+            email: emailInput.value,
+            review: reviewInput.value} )
     })
     const newReview = await response.json()
 
     newReviewForm.reset()
+    const clickBubbles = new Audio('assets/bubbles-onclick.mov')
+    clickBubbles.play()
     window.alert("The currents are delivering your message to me. I shall assess the worthiness of your words soon... ")
-
 }
-
 
 //FORTUNE FETCH REQUEST
 let i = 0
@@ -39,7 +64,6 @@ let i = 0
 async function postFortune() {
     const response = await fetch('http://localhost:3000/fortunes')
     const fortune = await response.json()
-
 
     //FORTUNE POST FUNCTION
         function addNewFortune(){
@@ -69,23 +93,30 @@ async function postFortune() {
 }
 
 //EVENT LISTENERS
+document.addEventListener('DOMContentLoaded', initializeClickTracking)
 newReviewForm.addEventListener('submit', () => submitReview(event))
-octopus.addEventListener('click', () => postFortune())
+octopus.addEventListener('click', () => updateClickCount())
 
+//touching the shop shelves
+fortuneShop.addEventListener("click", showAnnoyance = () =>
+    {window.alert("DO NOT TOUCH THAT!")})
 
-// limit to one 3 fortunes per day - click tracking
-// localStorage - you can save stuff in a window for later 
-// store when were the last clicks made date and time
-
-// after 3 clicks on the page, any button pressed should display an angry popup
-//I'm an octopus, not a fortune factory!
+//bubbles sound loads with page
+// document.addEventListener('DOMContentLoaded', playBubblesLoad = () =>
+//     {const loadBubbles = new Audio('assets/bubbles-on-load.mov')
+    
+//     let hasPlayed = false; 
+    
+//     document.body.addEventListener('click', () => {
+//         if (!hasPlayed) {
+//             loadBubbles.play()
+//             hasPlayed = true;
+//             }
+//         })
+//     })
+//can I make a page to enter so this can be a submit event instead? and it feels like it plays with the page loading. 
 
 // offer octupus fun facts second time use tries to surpass fortune limit
 //finding an API for fortunes or octupus facts - don't use anything with an API Key yet
 
-// a "DO NOT TOUCH THAT" button
-
 // should be pretty striaghtforward - regular octopus to angry
-
-//can event listeners trigger audio? download audio file and put it in assets and then research
-// DOMcontentloaded event listener for bubbles on load
