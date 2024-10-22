@@ -1,3 +1,5 @@
+
+
 //DECLARING CONSTANTS
 const newReviewForm = document.querySelector('#review-form')
 const nameInput = document.querySelector('.input-text')
@@ -8,6 +10,7 @@ const octopus = document.querySelector('#the-man-the-legend')
 const welcomeMessage = document.querySelector('#welcome-message')
 const instructions = document.querySelector('#instructions')
 const fortuneList = document.querySelector('#fortunes-here')
+const noReturns = document.querySelector('#center-image')
 
 //FORM POST REQUEST
 async function submitReview(event) {
@@ -18,9 +21,9 @@ async function submitReview(event) {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'}, 
         body: JSON.stringify( { 
-            name: nameInput.value,
-            email: emailInput.value,
-            review: reviewInput.value} )
+            name: nameInput.value.trim,
+            email: emailInput.value.trim,
+            review: reviewInput.value.trim} )
     })
     const newReview = await response.json()
 
@@ -32,6 +35,7 @@ async function submitReview(event) {
 
 //FORTUNE FETCH REQUEST
 let i = 0
+
 async function postFortune() {
     const response = await fetch('http://localhost:3000/fortunes')
     const fortune = await response.json()
@@ -45,9 +49,21 @@ async function postFortune() {
         fortuneList.append(fortunePost)
         i++ //tell local storage what this number is and then set i = localcstroage. something something
         }
-        }
 
-        welcomeMessage.textContent = "your fortune today says"
+    //no returns sign appears once user has received 3 fortunes
+        if (i > 2){ //this will need to become if sessionClicks > 2
+            const signPlace = document.createElement('img')
+            signPlace.className = 'mouseover-object'
+            signPlace.src = 'assets/no-returns-mouseover.png'
+            signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
+            noReturns.append(signPlace)
+
+            signPlace.addEventListener("click", showWarning = () =>
+                                        {window.alert("I do not guarantee results.")})
+            }
+        }
+        
+        welcomeMessage.textContent = "today's fortune says"
         instructions.textContent = 'I can conjure up to 3 fortunes a day.'
         addNewFortune()
 }
@@ -69,29 +85,9 @@ octopus.addEventListener('click', () => postFortune())
 
 // a "DO NOT TOUCH THAT" button
 
-// mouseover animations - last priority
 // should be pretty striaghtforward - regular octopus to angry
-// key frames - can be used for shaking or something
-
-// "no returns or refunds!!" // "I cannot guarantee results"
 
 //can event listeners trigger audio? download audio file and put it in assets and then research
 // DOMcontentloaded event listener for bubbles on load
 
-// const showWarning = () => {
-//     window.alert("Fortune")
-// }
-
-
-//OLD CODE TO COPY FOR OCTOPUS MAYBE
-// //this is probably how i will make buttons for my website
-// // link is a containedr for the image. not the other way around 
-// // becuase then the link doesn't wrap itself around the whole image it will just be somewhere inside the image (location unknown)
-
-// const linkToIMDB = document.createElement('a')
-// linkToIMDB.href = 'https://www.imdb.com/title/tt1099212/'
-// navbar.append(linkToIMDB)
-
-// const linkImage = document.createElement('img')
-// linkImage.src = "https://static.wikia.nocookie.net/twilightsaga/images/a/a4/Bella-306318_429619423747956_93621998_n.jpg/revision/latest?cb=20130824013830"
-// linkToIMDB.append(linkImage)
+//remember to add value.trim

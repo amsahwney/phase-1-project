@@ -39,15 +39,29 @@
   font-weight: bold;
   list-style: square outside url('assets/fish-element.png');
   z-index: 5;
-  /* background-color: rgba(22,24,23,0.25);
+  /* background-color: rgba(49,67,68,0.25);
   border-radius: 15px; */
 }
 
-
 #shop-panel {
     position: relative;
-    z-index:2;
   }
+
+.mouseover-object {
+  position: absolute;
+  top: 0;
+  transform: scale(0.87);
+  z-index: 6;
+  max-width: 100%; /* Ensures the image is responsive */
+  height: auto;
+  left:0;
+}
+
+.mouseover-object:hover {
+  top: 2%;
+  left: 2%;
+  transform: rotate(5deg); 
+}
 
 #setting-the-scene {
     width: 100%;
@@ -55,7 +69,7 @@
     object-fit: cover; /* Make sure the image fills the div without distortion */
     top: 0;
     left: 0;
-    /* position: relative;  this line might be necessary to make position absolute (below) work*/ 
+    z-index: 2;
   }
 
 #the-man-the-legend {
@@ -63,14 +77,14 @@
   position: absolute; /* might want to reconsider this as a solution due to issues with responsiveness*/
   width: auto;
   height: auto;
-  transform: scale(0.87);
-  right: -70 ;
+  right: 0 ;
+  top: 2%;
 }
 
   #form-panel {
     grid-column: 1 / -1;
     background-color: #314344;
-    padding: 60px;
+    padding: 60px; /* adjust this for responsive coding */
     position: relative;
     z-index: 1;
   }
@@ -108,7 +122,6 @@
   font-size: 24px;
   font-family: "Gill Sans";
 }
-
   
 /* making it responsive - the death of me */
 @media (max-width: 768px) {

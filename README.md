@@ -1,5 +1,6 @@
 SOURCES: 
-octopus and fortune shop images from canva AI graphics and images respectively
+octopus and fortune shop images from canva AI graphics and images respectively 
+https://www.canva.com/policies/ai-product-terms/
 
 fish bullet point from - canva elemnets
 
