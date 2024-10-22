@@ -37,8 +37,9 @@
   color: whitesmoke;
   font-size: 20px;
   font-weight: bold;
-
+  list-style: square outside url('assets/fish-element.png');
 }
+
 
 #shop-panel {
     position: relative;
