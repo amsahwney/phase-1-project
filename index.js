@@ -89,5 +89,3 @@ octopus.addEventListener('click', () => postFortune())
 
 //can event listeners trigger audio? download audio file and put it in assets and then research
 // DOMcontentloaded event listener for bubbles on load
-
-//remember to add value.trim
