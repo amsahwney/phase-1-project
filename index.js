@@ -25,8 +25,21 @@ function updateClickCount() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
     let clicks = parseInt(localStorage.getItem('clicks')) || 0
+    const existingSign = document.querySelector('.mouseover-object')
+    
     if (clicks >= 3 && lastClickDate === currentDate) {
         window.alert("I'm an octopus, NOT a fortune factory! come back tomorrow.")
+        
+        //placing sign at the end of the day - no returns sign appears once user has received 3 fortunes
+        if(!existingSign) {
+        const signPlace = document.createElement('img')
+        signPlace.className = 'mouseover-object'
+        signPlace.src = 'assets/no-returns-mouseover.png'
+        signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
+        noReturns.append(signPlace)
+
+        signPlace.addEventListener("click", showWarning = () =>
+                                    {window.alert("I do not guarantee results.")})}
     } else if (lastClickDate !== currentDate) {
         clicks = 1
         localStorage.setItem('clicks', `${clicks}`)
@@ -78,18 +91,6 @@ async function postFortune() {
         i++ 
         localStorage.setItem('fortuneInt', `${i}`)//tell local storage what this number is and then set i = localcstroage. something something
         }
-
-    //no returns sign appears once user has received 3 fortunes
-        if (i > 2){
-            const signPlace = document.createElement('img')
-            signPlace.className = 'mouseover-object'
-            signPlace.src = 'assets/no-returns-mouseover.png'
-            signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
-            noReturns.append(signPlace)
-
-            signPlace.addEventListener("click", showWarning = () =>
-                                        {window.alert("I do not guarantee results.")})
-            }
         }
         
         welcomeMessage.textContent = "today's fortune says"
@@ -106,6 +107,14 @@ octopus.addEventListener('click', () => updateClickCount())
 fortuneShop.addEventListener("click", showAnnoyance = () =>
     {window.alert("do NOT touch that")})
 
+// offer octupus fun facts second time user tries to surpass fortune limit
+//finding an API for fortunes or octupus facts - don't use anything with an API Key yet
+// if (clicksAfterDark = 2) {
+
+// }
+
+// should be pretty striaghtforward - regular octopus to angry
+
 //bubbles sound loads with page
 // document.addEventListener('DOMContentLoaded', playBubblesLoad = () =>
 //     {const loadBubbles = new Audio('assets/bubbles-on-load.mov')
@@ -119,9 +128,16 @@ fortuneShop.addEventListener("click", showAnnoyance = () =>
 //             }
 //         })
 //     })
-//can I make a page to enter so this can be a submit event instead? and it feels like it plays with the page loading. 
 
-// offer octupus fun facts second time use tries to surpass fortune limit
+//Letting go of this dream but:
+// I could make a page to enter so this can be a submit event instead? 
+//and then it would actually feel like the audio plays with the page loading. 
+
+
+// offer octupus fun facts second time user tries to surpass fortune limit
 //finding an API for fortunes or octupus facts - don't use anything with an API Key yet
+// if (clicksAfterDark = 2) {
+
+// }
 
 // should be pretty striaghtforward - regular octopus to angry

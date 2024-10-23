@@ -383,6 +383,34 @@
       "name": "a friend",
       "email": "",
       "review": "you're doing great :)"
+    },
+    {
+      "id": "c06d",
+      "name": "Ally",
+      "email": "ally@email.com",
+      "review": "I love it!"
+    }
+  ],
+  "octopus-facts": [
+    {
+        "id": "1", 
+        "fact": "Octopues have blue blood from copper!"
+    },
+    {
+        "id": "2",
+        "fact": "Octopues have 3 hearts - so much love to give!"
+    },
+    {
+        "id": "3",
+        "fact": "All octopuses are venomous, but only one octopus is dangerous to humans. Which one? You'll have to find our for yourself :)"
+    },
+    {
+        "id": "4",
+        "fact": "Octopuses are masters of camouflage, literally changing color, brightness, pattern and even texture to hide in plain sight or mate. "
+    },
+    {
+        "id": "5",
+        "fact": "Octopuses can come ashore, but can survive on limited gas exchange through their moist skin for only a few minutes"
     }
   ]
 }

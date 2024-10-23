@@ -40,7 +40,7 @@
   list-style: square outside url('assets/fish-element.png');
   z-index: 5;
   /* background-color: rgba(49,67,68,0.25);
-  border-radius: 15px; */
+  border-radius: 15px; these lines were helping make the fortunes readable but looked tacky imo*/
 }
 
 #shop-panel {
@@ -48,18 +48,18 @@
   }
 
 .mouseover-object {
-  position: relative;
+  position: absolute;
   top: 0;
   transform: scale(0.87);
   z-index: 6;
   max-width: 100%; /* Ensures the image is responsive */
   height: auto;
-  bottom: 0;
-  left: 43%;
+  right: 0;
 }
 
 .mouseover-object:hover {
-  bottom: 2%;
+  top: 2%;
+  right: 2%;
   transform: rotate(5deg); 
 }
 
