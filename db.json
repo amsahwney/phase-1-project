@@ -389,28 +389,34 @@
       "name": "Ally",
       "email": "ally@email.com",
       "review": "I love it!"
+    },
+    {
+      "id": "80ef",
+      "name": "Justin ",
+      "email": "justin@email.com",
+      "review": "Bitch needs to get his eyebrows done by someone more talented...."
     }
   ],
   "octopus-facts": [
     {
-        "id": "1", 
-        "fact": "Octopuses have blue blood from copper!"
+      "id": "1",
+      "fact": "Octopuses have blue blood from copper"
     },
     {
-        "id": "2",
-        "fact": "Octopuses have 3 hearts - so much love to give!"
+      "id": "2",
+      "fact": "Octopuses have 3 hearts - so much love to give"
     },
     {
-        "id": "3",
-        "fact": "All octopuses are venomous, but only one octopus is dangerous to humans. Which one? You'll have to find our for yourself :)"
+      "id": "3",
+      "fact": "All octopuses are venomous, but only one octopus is dangerous to humans. Which one? find out for yourself :)"
     },
     {
-        "id": "4",
-        "fact": "Octopuses are masters of camouflage, literally changing color, brightness, pattern and even texture to hide in plain sight or mate. "
+      "id": "4",
+      "fact": "Octopuses are masters of camouflage, changing color, brightness, pattern and even texture to hide in plain sight or mate. "
     },
     {
-        "id": "5",
-        "fact": "Octopuses can come ashore, but can survive on limited gas exchange through their moist skin for only a few minutes"
+      "id": "5",
+      "fact": "Octopuses can come ashore, surviving on limited gas exchange through their moist skin but only for a few minutes"
     }
   ]
 }

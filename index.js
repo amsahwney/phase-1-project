@@ -8,10 +8,11 @@ const octopus = document.querySelector('#the-man-the-legend')
 const welcomeMessage = document.querySelector('#welcome-message')
 const instructions = document.querySelector('#instructions')
 const fortuneList = document.querySelector('#fortunes-here')
+const fortunePersist = document.querySelector('#text-parent')
 const noReturns = document.querySelector('#center-image')
 const fortuneShop = document.querySelector('#setting-the-scene')
 
-//LOCAL STORAGE SITUATION
+//LOCAL STORAGE SITUATION ONE - start click tracking callback function
 function initializeClickTracking() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
@@ -21,53 +22,73 @@ function initializeClickTracking() {
     }
 }
 
-// OCTOPUS FACT FETCH REQUEST
+//OCTOPUS ANGER CALLBACK FUNCTIONS
+function getAngry() {
+    octopus.src = "assets/angry_octopus.svg"
+}
+
+function calmDown() {
+    octopus.src = "assets/octopus_vector.svg"
+}
+
+
+// OCTOPUS FACT FETCH REQUEST - callback function for updateClickCount
 async function hitWithFacts() {
+    let j = parseInt(localStorage.getItem('factInt')) || 0
     const response = await fetch('http://localhost:3000/octopus-facts') 
     const facty = await response.json()
 
-    window.alert(`you've already recieved 3 fortunes today. take this octopus fact instead:${facty[j].fact}`)
+    window.alert(`you've already recieved 3 fortunes today. have this octopus fact instead: ${facty[j].fact}`)
     j++
     localStorage.setItem('factInt', `${j}`)
  }
 
+
+//LOCAL STORAGE SITUATION TWO, THE BIG ONE. specify actions based on click counts - callback for event listener
 function updateClickCount() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
     let clicks = parseInt(localStorage.getItem('clicks')) || 0
     const existingSign = document.querySelector('.mouseover-object')
+
+    let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0
     
     if (clicks >= 3 && lastClickDate === currentDate) {
-        window.alert("I'm an octopus, NOT a fortune factory! come back tomorrow.")
-        octopus.addEventListener('mouseover', getAngry = () => {octopus.src = "assets/angry_octopus.svg"})
-        octopus.addEventListener('mouseout', calmDown = () => {octopus.src = "assets/octopus_vector.svg"})
-        
-        //OFFERING OCTOPUS FACTS
-        let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0
+        //IF USER DOES NOT LEAVE AFTER OCTOPUS FACT, ANGER
+        if (clicksAfterDark >= 1){
+        window.alert("i'm an octopus, not a fortune factory! come back tomorrow.")
+        octopus.addEventListener('mouseover', getAngry)
+        octopus.addEventListener('mouseout', calmDown)
+
+         //no returns sign appears once user has thoroughly angered octopus
+         if(clicksAfterDark >= 2 && !existingSign) {
+            const signPlace = document.createElement('img')
+            signPlace.className = 'mouseover-object'
+            signPlace.src = 'assets/no-returns-mouseover.png'
+            signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
+            noReturns.append(signPlace)
+    
+            signPlace.addEventListener("click", showWarning = () =>
+                                        {window.alert("I do not guarantee results.")})}
+        }
+
+        //FIRST OFFERING OCTOPUS FACTS
         clicksAfterDark++
         localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
 
-        if (clicksAfterDark === 2) {
-            let j = parseInt(localStorage.getItem('factInt')) || 0
+        if (clicksAfterDark === 1) {
             hitWithFacts()
             }
-        
-        //no returns sign appears once user has received 3 fortunes
-        if(!existingSign) {
-        const signPlace = document.createElement('img')
-        signPlace.className = 'mouseover-object'
-        signPlace.src = 'assets/no-returns-mouseover.png'
-        signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
-        noReturns.append(signPlace)
-
-        signPlace.addEventListener("click", showWarning = () =>
-                                    {window.alert("I do not guarantee results.")})}
 
     } else if (lastClickDate !== currentDate) {
         clicks = 1
+        clicksAfterDark = 0
         localStorage.setItem('clicks', `${clicks}`)
-        localStorage.setItem('lastClickDate', currentDate)
+        localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
+        localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... 
         fortuneList.innerHTML = " "
+        noReturns.innerHTML = " "
+        octopus.removeEventListener('mouseover', getAngry)
         postFortune()
 
     } else if (clicks < 3) {
@@ -78,7 +99,7 @@ function updateClickCount() {
     }
 }
 
-//FORM POST REQUEST
+//FORM POST REQUEST - callback for event listener
 async function submitReview(event) {
     
     event.preventDefault()
@@ -99,7 +120,7 @@ async function submitReview(event) {
     window.alert("The currents are delivering your message to me. I shall assess the worthiness of your words soon... ")
 }
 
-//FORTUNE FETCH REQUEST
+//FORTUNE FETCH REQUEST - callback for updateClickCount
 let i = parseInt(localStorage.getItem('fortuneInt'))|| 0
 
 async function postFortune() {
@@ -130,6 +151,7 @@ octopus.addEventListener('click', () => updateClickCount())
 //touching the shop shelves
 fortuneShop.addEventListener("click", showAnnoyance = () =>
     {window.alert("do NOT touch that")})
+
 
 
 //Letting go of this dream:
