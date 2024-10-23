@@ -48,13 +48,13 @@
   }
 
 .mouseover-object {
-  position: absolute;
-  top: 0;
+  position: relative;
   transform: scale(0.87);
   z-index: 6;
   max-width: 100%; /* Ensures the image is responsive */
   height: auto;
-  right: 0;
+  bottom: 0;
+  left: 43%;
 }
 
 .mouseover-object:hover {

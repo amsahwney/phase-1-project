@@ -21,6 +21,16 @@ function initializeClickTracking() {
     }
 }
 
+// OCTOPUS FACT FETCH REQUEST
+async function hitWithFacts() {
+    const response = await fetch('http://localhost:3000/octopus-facts') 
+    const facty = await response.json()
+
+    window.alert(`you've already recieved 3 fortunes today. take this octopus fact instead:${facty[j].fact}`)
+    j++
+    localStorage.setItem('factInt', `${j}`)
+ }
+
 function updateClickCount() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
@@ -29,8 +39,20 @@ function updateClickCount() {
     
     if (clicks >= 3 && lastClickDate === currentDate) {
         window.alert("I'm an octopus, NOT a fortune factory! come back tomorrow.")
+        octopus.addEventListener('mouseover', getAngry = () => {octopus.src = "assets/angry_octopus.svg"})
+        octopus.addEventListener('mouseout', calmDown = () => {octopus.src = "assets/octopus_vector.svg"})
         
-        //placing sign at the end of the day - no returns sign appears once user has received 3 fortunes
+        //OFFERING OCTOPUS FACTS
+        let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0
+        clicksAfterDark++
+        localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
+
+        if (clicksAfterDark === 2) {
+            let j = parseInt(localStorage.getItem('factInt')) || 0
+            hitWithFacts()
+            }
+        
+        //no returns sign appears once user has received 3 fortunes
         if(!existingSign) {
         const signPlace = document.createElement('img')
         signPlace.className = 'mouseover-object'
@@ -40,12 +62,14 @@ function updateClickCount() {
 
         signPlace.addEventListener("click", showWarning = () =>
                                     {window.alert("I do not guarantee results.")})}
+
     } else if (lastClickDate !== currentDate) {
         clicks = 1
         localStorage.setItem('clicks', `${clicks}`)
         localStorage.setItem('lastClickDate', currentDate)
         fortuneList.innerHTML = " "
         postFortune()
+
     } else if (clicks < 3) {
         localStorage.setItem('lastClickDate', currentDate)
         clicks++
@@ -89,7 +113,7 @@ async function postFortune() {
         fortunePost.textContent = fortune[i].content
         fortuneList.append(fortunePost)
         i++ 
-        localStorage.setItem('fortuneInt', `${i}`)//tell local storage what this number is and then set i = localcstroage. something something
+        localStorage.setItem('fortuneInt', `${i}`)
         }
         }
         
@@ -107,13 +131,11 @@ octopus.addEventListener('click', () => updateClickCount())
 fortuneShop.addEventListener("click", showAnnoyance = () =>
     {window.alert("do NOT touch that")})
 
-// offer octupus fun facts second time user tries to surpass fortune limit
-//finding an API for fortunes or octupus facts - don't use anything with an API Key yet
-// if (clicksAfterDark = 2) {
 
-// }
-
-// should be pretty striaghtforward - regular octopus to angry
+//Letting go of this dream:
+//browser controls don't allow for audio to play on load (without user action)
+// I could make a page to enter so this can be a submit event instead? 
+//and then on pressing enter, it would actually feel like the audio plays with the page loading. 
 
 //bubbles sound loads with page
 // document.addEventListener('DOMContentLoaded', playBubblesLoad = () =>
@@ -128,16 +150,3 @@ fortuneShop.addEventListener("click", showAnnoyance = () =>
 //             }
 //         })
 //     })
-
-//Letting go of this dream but:
-// I could make a page to enter so this can be a submit event instead? 
-//and then it would actually feel like the audio plays with the page loading. 
-
-
-// offer octupus fun facts second time user tries to surpass fortune limit
-//finding an API for fortunes or octupus facts - don't use anything with an API Key yet
-// if (clicksAfterDark = 2) {
-
-// }
-
-// should be pretty striaghtforward - regular octopus to angry
