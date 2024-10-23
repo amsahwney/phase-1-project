@@ -12,12 +12,35 @@ const fortunePersist = document.querySelector('#text-parent')
 const noReturns = document.querySelector('#center-image')
 const fortuneShop = document.querySelector('#setting-the-scene')
 
-//LOCAL STORAGE SITUATION ONE - start click tracking callback function
+//LOCAL STORAGE SITUATION - start click tracking callback function
 function initializeClickTracking() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
     if (lastClickDate !== currentDate) {
         localStorage.setItem('clicks', "0")
+        localStorage.setItem('lastClickDate', currentDate)
+    }
+}
+
+//LOCAL STORAGE SITUATION - start fortune tracking for fortune persistence
+function initializeFortunes() {
+    const lastClickDate = localStorage.getItem('lastClickDate');
+    const currentDate = new Date().toLocaleDateString();
+    
+    if (lastClickDate === currentDate) {
+        if (parseInt(localStorage.getItem('clicks')) >= 1) {
+            fortunePersist.innerHTML = localStorage.getItem('savedFortunes')
+        }
+    } else {
+        fortunePersist.innerHTML = `<h1 class="welcome-text "id="welcome-message">
+                                    so you've come to me for some fortune, hmm?<br></h1>
+
+                                    <ul id="fortunes-here"></ul>
+
+                                    <h2 class="welcome-text" id="instructions">
+                                    Click a suction cup to receive your fortune. <br> I can conjure up to 3 fortunes a day.</h2>`
+        localStorage.removeItem('savedFortunes')
+        localStorage.setItem('clicks', '0')
         localStorage.setItem('lastClickDate', currentDate)
     }
 }
@@ -31,7 +54,6 @@ function calmDown() {
     octopus.src = "assets/octopus_vector.svg"
 }
 
-
 // OCTOPUS FACT FETCH REQUEST - callback function for updateClickCount
 async function hitWithFacts() {
     let j = parseInt(localStorage.getItem('factInt')) || 0
@@ -43,8 +65,7 @@ async function hitWithFacts() {
     localStorage.setItem('factInt', `${j}`)
  }
 
-
-//LOCAL STORAGE SITUATION TWO, THE BIG ONE. specify actions based on click counts - callback for event listener
+//LOCAL STORAGE SITUATION (THE BIG ONE). specify actions based on click counts - callback for event listener
 function updateClickCount() {
     const lastClickDate = localStorage.getItem('lastClickDate')
     const currentDate = new Date().toLocaleDateString()
@@ -54,7 +75,11 @@ function updateClickCount() {
     let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0
     
     if (clicks >= 3 && lastClickDate === currentDate) {
-        //IF USER DOES NOT LEAVE AFTER OCTOPUS FACT, ANGER
+        
+        //Store the already provided fortunes of the day
+        fortunePersist.innerHTML = localStorage.getItem('savedFortunes') || ''
+
+        //IF USER CONTINUES CLICKING AFTER OCTOPUS FACT, ANGER
         if (clicksAfterDark >= 1){
         window.alert("i'm an octopus, not a fortune factory! come back tomorrow.")
         octopus.addEventListener('mouseover', getAngry)
@@ -86,9 +111,16 @@ function updateClickCount() {
         localStorage.setItem('clicks', `${clicks}`)
         localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
         localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... 
-        fortuneList.innerHTML = " "
-        noReturns.innerHTML = " "
+        fortuneList.innerHTML = ""
+        noReturns.innerHTML = ""
         octopus.removeEventListener('mouseover', getAngry)
+        // fortunePersist.innerHTML = `<h1 class="welcome-text "id="welcome-message">
+        //                             so you've come to me for some fortune, hmm?<br></h1>
+
+        //                             <ul id="fortunes-here"></ul>
+
+        //                             <h2 class="welcome-text" id="instructions">
+        //                             Click a suction cup to receive your fortune. <br> I can conjure up to 3 fortunes a day.</h2>`
         postFortune()
 
     } else if (clicks < 3) {
@@ -130,6 +162,7 @@ async function postFortune() {
     //FORTUNE POST FUNCTION
         function addNewFortune(){
         if (i < fortune.length){
+        console.log(fortune.length)
         const fortunePost = document.createElement("li")
         fortunePost.textContent = fortune[i].content
         fortuneList.append(fortunePost)
@@ -141,10 +174,12 @@ async function postFortune() {
         welcomeMessage.textContent = "today's fortune says"
         instructions.textContent = 'I can conjure up to 3 fortunes a day.'
         addNewFortune()
+        localStorage.setItem('savedFortunes', fortunePersist.innerHTML)
 }
 
 //EVENT LISTENERS
 document.addEventListener('DOMContentLoaded', initializeClickTracking)
+document.addEventListener('DOMContentLoaded', initializeFortunes)
 newReviewForm.addEventListener('submit', () => submitReview(event))
 octopus.addEventListener('click', () => updateClickCount())
 
