@@ -28,11 +28,10 @@ Please make sure to update tests as appropriate.
 
 
 
-SOURCES: 
+## Sources: 
 octopus and fortune shop images from canva AI graphics and images respectively 
+fish bullet point also from canva elements
 https://www.canva.com/policies/ai-product-terms/
-
-fish bullet point from - canva elemnets
 
 audio elements from pixabay.com
 https://pixabay.com/sound-effects/search/underwater%20bubbles/
