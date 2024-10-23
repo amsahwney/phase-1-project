@@ -28,7 +28,7 @@ function initializeFortunes() {
     const currentDate = new Date().toLocaleDateString();
     
     if (lastClickDate === currentDate) {
-        if (parseInt(localStorage.getItem('clicks')) >= 1) {
+        if (parseInt(localStorage.getItem('clicks')) >= 3) {
             fortunePersist.innerHTML = localStorage.getItem('savedFortunes')
         }
     } else {
@@ -110,17 +110,10 @@ function updateClickCount() {
         clicksAfterDark = 0
         localStorage.setItem('clicks', `${clicks}`)
         localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
-        localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... 
+        localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... idk so done. just gonna leave it for now. 
         fortuneList.innerHTML = ""
         noReturns.innerHTML = ""
         octopus.removeEventListener('mouseover', getAngry)
-        // fortunePersist.innerHTML = `<h1 class="welcome-text "id="welcome-message">
-        //                             so you've come to me for some fortune, hmm?<br></h1>
-
-        //                             <ul id="fortunes-here"></ul>
-
-        //                             <h2 class="welcome-text" id="instructions">
-        //                             Click a suction cup to receive your fortune. <br> I can conjure up to 3 fortunes a day.</h2>`
         postFortune()
 
     } else if (clicks < 3) {
