@@ -18,6 +18,7 @@ function initializeClickTracking() {
     const currentDate = new Date().toLocaleDateString()
     if (lastClickDate !== currentDate) {
         localStorage.setItem('clicks', "0")
+        localStorage.setItem('clicksAfterDark', "0")
         localStorage.setItem('lastClickDate', currentDate)
     }
 }
@@ -109,7 +110,7 @@ function updateClickCount() {
         clicks = 1
         clicksAfterDark = 0
         localStorage.setItem('clicks', `${clicks}`)
-        localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
+        localStorage.setItem('clicksAfterDark', `0`)
         localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... idk so done. just gonna leave it for now. 
         fortuneList.innerHTML = ""
         noReturns.innerHTML = ""
