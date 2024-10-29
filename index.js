@@ -12,37 +12,36 @@ const fortunePersist = document.querySelector('#text-parent')
 const noReturns = document.querySelector('#center-image')
 const fortuneShop = document.querySelector('#setting-the-scene')
 
-//LOCAL STORAGE SITUATION - start click tracking callback function
+// LOCAL STORAGE SITUATION - start click tracking callback function
 function initializeClickTracking() {
-    const lastClickDate = localStorage.getItem('lastClickDate')
-    const currentDate = new Date().toLocaleDateString()
+    const lastClickDate = localStorage.getItem('lastClickDate');
+    const currentDate = new Date().toLocaleDateString();
     if (lastClickDate !== currentDate) {
-        localStorage.setItem('clicks', "0")
-        localStorage.setItem('clicksAfterDark', "0")
-        localStorage.setItem('lastClickDate', currentDate)
+        localStorage.setItem('clicks', "0");
+        localStorage.setItem('clicksAfterDark', "0");
+        localStorage.setItem('lastClickDate', currentDate);
     }
 }
 
-//LOCAL STORAGE SITUATION - start fortune tracking for fortune persistence
+// LOCAL STORAGE SITUATION - start fortune tracking for fortune persistence
 function initializeFortunes() {
     const lastClickDate = localStorage.getItem('lastClickDate');
     const currentDate = new Date().toLocaleDateString();
     
     if (lastClickDate === currentDate) {
         if (parseInt(localStorage.getItem('clicks')) >= 3) {
-            fortunePersist.innerHTML = localStorage.getItem('savedFortunes')
+            fortunePersist.innerHTML = localStorage.getItem('savedFortunes') || '';
         }
     } else {
-        fortunePersist.innerHTML = `<h1 class="welcome-text "id="welcome-message">
+        fortunePersist.innerHTML = `<h1 class="welcome-text" id="welcome-message">
                                     so you've come to me for some fortune, hmm?<br></h1>
-
                                     <ul id="fortunes-here"></ul>
-
                                     <h2 class="welcome-text" id="instructions">
-                                    Click a suction cup to receive your fortune. <br> I can conjure up to 3 fortunes a day.</h2>`
-        localStorage.removeItem('savedFortunes')
-        localStorage.setItem('clicks', '0')
-        localStorage.setItem('lastClickDate', currentDate)
+                                    Click a suction cup to receive your fortune. <br> I can conjure up to 3 fortunes a day.</h2>`;
+        localStorage.removeItem('savedFortunes'); // Clear saved fortunes for a new day
+        localStorage.setItem('clicks', '0');
+        localStorage.setItem('clicksAfterDark', '0');
+        localStorage.setItem('lastClickDate', currentDate);
     }
 }
 
@@ -64,62 +63,66 @@ async function hitWithFacts() {
     window.alert(`you've already recieved 3 fortunes today. have this octopus fact instead: ${facty[randomIndex].fact}`)
  }
 
-//LOCAL STORAGE SITUATION (THE BIG ONE). specify actions based on click counts - callback for event listener
+// LOCAL STORAGE SITUATION (THE BIG ONE). Specify actions based on click counts - callback for event listener
 function updateClickCount() {
-    const lastClickDate = localStorage.getItem('lastClickDate')
-    const currentDate = new Date().toLocaleDateString()
-    let clicks = parseInt(localStorage.getItem('clicks')) || 0
-    const existingSign = document.querySelector('.mouseover-object')
+    const lastClickDate = localStorage.getItem('lastClickDate');
+    const currentDate = new Date().toLocaleDateString();
+    let clicks = parseInt(localStorage.getItem('clicks')) || 0;
+    let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0;
+    const existingSign = document.querySelector('.mouseover-object');
 
-    let clicksAfterDark = parseInt(localStorage.getItem('clicksAfterDark')) || 0
-    
     if (clicks >= 3 && lastClickDate === currentDate) {
-        
-        //Store the already provided fortunes of the day
-        fortunePersist.innerHTML = localStorage.getItem('savedFortunes') || ''
+        fortunePersist.innerHTML = localStorage.getItem('savedFortunes') || '';
 
-        //IF USER CONTINUES CLICKING AFTER OCTOPUS FACT, ANGER
-        if (clicksAfterDark >= 1){
-        window.alert("i'm an octopus, not a fortune factory! come back tomorrow.")
-        octopus.addEventListener('mouseover', getAngry)
-        octopus.addEventListener('mouseout', calmDown)
+        // IF USER CONTINUES CLICKING AFTER OCTOPUS FACT, ANGER
+        if (clicksAfterDark >= 1) {
+            window.alert("I'm an octopus, not a fortune factory! Come back tomorrow.");
+            octopus.addEventListener('mouseover', getAngry);
+            octopus.addEventListener('mouseout', calmDown);
 
-         //no returns sign appears once user has thoroughly angered octopus
-         if(clicksAfterDark >= 2 && !existingSign) {
-            const signPlace = document.createElement('img')
-            signPlace.className = 'mouseover-object'
-            signPlace.src = 'assets/no-returns-mouseover.png'
-            signPlace.alt = 'Old wodden sign reading no returns for refunds. Refunds is spelled terribly.'
-            noReturns.append(signPlace)
-    
-            signPlace.addEventListener("click", showWarning = () =>
-                                        {window.alert("I do not guarantee results.")})}
+            // No returns sign appears once user has thoroughly angered octopus
+            if (clicksAfterDark >= 2 && !existingSign) {
+                const signPlace = document.createElement('img');
+                signPlace.className = 'mouseover-object';
+                signPlace.src = 'assets/no-returns-mouseover.png';
+                signPlace.alt = 'Old wooden sign reading no returns or refunds. Refunds is spelled terribly.';
+                noReturns.append(signPlace);
+
+                signPlace.addEventListener("click", () =>
+                    window.alert("I do not guarantee results.")
+                );
+            }
         }
 
-        //FIRST OFFERING OCTOPUS FACTS
-        clicksAfterDark++
-        localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`)
+        // FIRST OFFERING OCTOPUS FACTS
+        clicksAfterDark++;
+        localStorage.setItem('clicksAfterDark', `${clicksAfterDark}`);
 
         if (clicksAfterDark === 1) {
-            hitWithFacts()
-            }
+            hitWithFacts();
+        }
 
     } else if (lastClickDate !== currentDate) {
-        clicks = 1
-        clicksAfterDark = 0
-        localStorage.setItem('clicks', `${clicks}`)
-        localStorage.setItem('clicksAfterDark', `0`)
-        localStorage.setItem('lastClickDate', currentDate) //I don't think I need this line because line 21 already does this... idk so done. just gonna leave it for now. 
-        fortuneList.innerHTML = ""
-        noReturns.innerHTML = ""
-        octopus.removeEventListener('mouseover', getAngry)
-        postFortune()
+        clicks = 1;
+        clicksAfterDark = 0;
+        localStorage.setItem('clicks', `${clicks}`);
+        localStorage.setItem('clicksAfterDark', `0`);
+        localStorage.setItem('lastClickDate', currentDate); 
+        fortuneList.innerHTML = "";
+        noReturns.innerHTML = "";
+        octopus.removeEventListener('mouseover', getAngry);
+        postFortune();
 
     } else if (clicks < 3) {
-        localStorage.setItem('lastClickDate', currentDate)
-        clicks++
-        localStorage.setItem('clicks', `${clicks}`)
-        postFortune()
+        localStorage.setItem('lastClickDate', currentDate);
+        clicks++;
+        localStorage.setItem('clicks', `${clicks}`);
+        postFortune();
+
+        // Save fortunes only after the third one
+        if (clicks === 3) {
+            localStorage.setItem('savedFortunes', fortunePersist.innerHTML);
+        }
     }
 }
 
