@@ -57,13 +57,11 @@ function calmDown() {
 
 // OCTOPUS FACT FETCH REQUEST - callback function for updateClickCount
 async function hitWithFacts() {
-    let j = parseInt(localStorage.getItem('factInt')) || 0
-    const response = await fetch('http://localhost:3000/octopus-facts') 
+    const response = await fetch('https://tentaculous-truths.onrender.com/octopus-facts') 
     const facty = await response.json()
 
-    window.alert(`you've already recieved 3 fortunes today. have this octopus fact instead: ${facty[j].fact}`)
-    j++
-    localStorage.setItem('factInt', `${j}`)
+    const randomIndex = Math.floor(Math.random() * facty.length)
+    window.alert(`you've already recieved 3 fortunes today. have this octopus fact instead: ${facty[randomIndex].fact}`)
  }
 
 //LOCAL STORAGE SITUATION (THE BIG ONE). specify actions based on click counts - callback for event listener
@@ -130,7 +128,7 @@ async function submitReview(event) {
     
     event.preventDefault()
 
-    const response = await fetch('http://localhost:3000/responses', {
+    const response = await fetch('https://tentaculous-truths.onrender.com/responses', {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'}, 
         body: JSON.stringify( { 
@@ -147,22 +145,16 @@ async function submitReview(event) {
 }
 
 //FORTUNE FETCH REQUEST - callback for updateClickCount
-let i = parseInt(localStorage.getItem('fortuneInt'))|| 0
-
 async function postFortune() {
-    const response = await fetch('http://localhost:3000/fortunes')
+    const response = await fetch('https://tentaculous-truths.onrender.com/fortunes')
     const fortune = await response.json()
+    const randomIndex = Math.floor(Math.random()* fortune.length)
 
     //FORTUNE POST FUNCTION
         function addNewFortune(){
-        if (i < fortune.length){
-        console.log(fortune.length)
         const fortunePost = document.createElement("li")
-        fortunePost.textContent = fortune[i].content
+        fortunePost.textContent = fortune[randomIndex].content
         fortuneList.append(fortunePost)
-        i++ 
-        localStorage.setItem('fortuneInt', `${i}`)
-        }
         }
         
         welcomeMessage.textContent = "today's fortune says"
